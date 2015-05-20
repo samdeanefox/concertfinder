@@ -19,7 +19,32 @@ var myArtists = [
 	'Chris Malinchak', 'Chrome Sparks', 'Chromeo', 'Classixx', 'Clean Bandit', 'Colour Coding',
 	'Com Truise', 'Compton\'s Most Wanted', 'Conspirator', 'Crayon', 'Cults', 'Cut Copy', 'Dabrye',
 	'Daft Punk', 'Damian Marley', 'Dan Auerbach', 'Darius', 'DARKSUNN', 'Dave Van Ronk', 'David Grisman',
-	'De La Soul'
+	'De La Soul', 'Death Cab for Cutie', 'DeBarge', 'Della Mae', 'The Devil Makes Three', 'Devil Makes Three',
+	'The Diplomats', 'Dirty Vegas', 'Disclosure', 'DJ Shadow', 'The Doobie Brothers', 'Dream Koala', 'The Drums',
+	'Earth, Wind & Fire', 'Echosmith', 'El DeBarge', 'Elaquent', 'Electric Light Orchestra', 'Eminem',
+	'The Emotions', 'Empire Of The Sun', 'Empire of the Sun', 'EOTO', 'Elephants Only Talk Occasionally', 'Family of the Year',
+	'Fitz and The Tantrums', 'Fleetwood Mac', 'The Floozies', 'Flying Lotus', 'Foster The People', 'The Fray',
+	'Free The Robots', 'Generationals', 'Gil Scott-Heron & Jamie xx', 'Givers', 'Grateful Dead', 'Groundation', 'Guster',
+	'Guy', 'Hamilton Park', 'The Head And The Heart', 'Hieroglyphics', 'Holy Ghost!', 'Hot Natured',
+	'Hot Rize', 'Husalah', 'Imogen Heap', 'Inf', 'The Isaacs', 'J Dilla', 'J-Diggs', 'J. Rawls', 'Ja Rule', 'The Jacka',
+	'Jackie Greene', 'Jackson Browne', 'James Blake', 'James Brown', 'James Taylor', 'Jim James',
+	'John Mayer', 'Junip', 'JUNIP', 'Keith Sweat', 'The Killers', 'Kodomo', 'Kurupt', 'La Roux', 'Lanterns on the Lake',
+	'Lemon Jelly', 'Lenny Kravitz', 'Les Sins', 'Liquid Tension Experiment', 'Little People', 'London Grammar',
+	'Lotus', 'Lucy Rose', 'Luniz', 'Mac Dre', 'Mac Miller', 'Madeon', 'Magic!', 'Man Man', 'Marcus D', 'Marcus Marr',
+	'Mark Ronson', 'Martin Jondo', 'Marvin Gaye', 'Mat.Joe', 'Mat Joe', 'Maximo Park', 'Metaform', 'MGMT',
+	'Miami Horror', 'Miike Snow', 'Modjo', 'Mord Fustang', 'Mr Little Jeans', 'Mutemath', 'Nada Surf', 'Neil Young',
+	'Neon Indian', 'The New Deal', 'New Found Glory', 'Nicolas Jaar', 'Nirvana', 'Norah Jones', 'The Notorious B.I.G.',
+	'Oasis', 'Of Monsters And Men', 'Oingo Boingo', 'Old Crow Medicine Show', 'Opiuo', 'OutKast', 'P.S.D', 'Papadosio',
+	'Parliament', 'Passion Pit', 'Patrick Lee', 'Penguin Prison', 'People Under The Stairs', 'Phaeleh', 'Pharrell Williams',
+	'Phil Collins', 'Phoenix', 'Pnuma Trio', 'The Pnuma Trio', 'Pogo', 'The Postal Service', 'Prefuse 73', 'Prefuse73', 'Pretty Lights',
+	'R. Kelly', 'RAC', 'Radiohead', 'Random Rab', 'Ratatat', 'Ray Charles', 'Red Hot Chili Peppers', 'Rhye', 'Rooney',
+	'Ryan Montbleau', 'Sade', 'Samiyam', 'Sbtrkt', 'SBTRKT', 'Shy Girls', 'Sierra Hull', 'Six Deep', 'Skrillex', 'Smooth Jazz All-Stars',
+	'Social Distortion', 'Spoon', 'Squarepusher', 'Stacey Kent', 'Star Slinger', 'Starship Connection & K-Maxx', 'Steely Dan',
+	'Stephane Pompougnac', 'Stevie Wonder', 'STRFKR', 'STS9', 'Sound Tribe Sector 9', 'Sufjan Stevens', 'Sum 41', 'Summer Camp', 'Summer Heart',
+	'Sunshine Anderson', 'Tame Impala', 'Telefon Tel Aviv', 'Todd Terje', 'Tony Ozier', 'Toro Y Moi', 'Toro y Moi', 'Totally Enormous Extinct Dinosaurs',
+	'Trey Songz', 'Turner', 'TV On The Radio', 'Twin Forks', 'Two Door Cinema Club', 'Two Hours Traffic', 'Tycho', 'The Virgins', 'Washed Out',
+	'The Weeknd', 'The Whispers', 'White Denim', 'The Who', 'Wild Cub', 'Wilkinson', 'Wiz Khalifa', 'YACHT',
+	'Yeah Yeah Yeahs', 'Yellowcard', 'Yonder Mountain String Band', 'The Yonder Mountain String Band', 'Young the Giant', 'Young The Giant', 'Yukmouth'
 ];
 
 
