@@ -6,45 +6,45 @@ if(args.length!==4 || args[2].length!==5 || isNaN(parseInt(args[2])) || isNaN(pa
 }
 
 var myArtists = [
-	'2Pac', '2wice', '311', '360', 'a-ha', 'Above & Beyond', 'Above and Beyond',
-	'Aeroplane', 'Air', 'Al Green', 'Aloe Blacc', 'alt-J', 'Anchorsong', 'Anchor Song',
-	'Antonio Carlos Jobim', 'Aphex Twin', 'Apparat', 'Atlas Genius', 'Atmosphere',
-	'ATU', 'The Avett Brothers', 'Avett Brothers', 'AWOLNATION', 'Awolnation',
-	'B.o.B', 'Badbadnotgood', 'Bag Raiders', 'Banks', 'Bastille',
-	'Baths', 'Beats Antique', 'Bibio', 'Big L', 'Blind Melon', 'Blind Pilot',
+	'2Pac', '2wice', '311', '360', 'A Tribe Called Quest', 'a-ha', 'Above & Beyond', 'Above and Beyond', 'AC/DC',
+	'Aeroplane', 'AFX', 'Air', 'Al Green', 'Aloe Blacc', 'Alison Krauss', 'alt-J', 'AmpLive', 'Anchorsong', 'Anchor Song',
+	'Antonio Carlos Jobim', 'Aphex Twin', 'Aphrodite','Apparat', 'Atlas Genius', 'Atmosphere',
+	'ATU', 'The Avalanches','The Avett Brothers', 'Avett Brothers', 'AWOLNATION', 'Awolnation',
+	'B.o.B', 'Badbadnotgood', 'Bag Raiders', 'Banks', 'Basement Jaxx', 'Bassnectar', 'Bastille',
+	'Baths', 'Beats Antique', 'Berner', 'Bibio', 'Big L', 'Bivouac', 'Blind Melon', 'Blind Pilot',
 	'blink-182', 'Blink-182', 'Blockhead', 'Blood Orange', 'Blue Oyster Cult',
-	'The Wailers', 'Bobby Brown', 'Bobby McFerrin', 'Bondax', 'Boney James', 'Bonobo',
-	'Booker T. & The MG\'s', 'Breakbot', 'Brotha Lynch Hung', 'Bruno Mars', 'C2C', 'Capital Cities',
-	'Carole King', 'Carousel', 'Cashmere Cat', 'Catching Flies', 'Cheap Trick', 'Childish Gambino',
-	'Chris Malinchak', 'Chrome Sparks', 'Chromeo', 'Classixx', 'Clean Bandit', 'Colour Coding',
-	'Com Truise', 'Compton\'s Most Wanted', 'Conspirator', 'Crayon', 'Cults', 'Cut Copy', 'Dabrye',
+	'The Wailers', 'Bobby Brown', 'Bobby McFerrin', 'Bondax', 'Bone Thugs-n-Harmony', 'Boney James', 'Bonobo', 'Carlos Santana', 'Santana',
+	'Booker T. & The MG\'s', 'Breakbot', 'Brotha Lynch Hung', 'Bruno Mars', 'C2C', 'Cake', 'Capital Cities',
+	'Carole King', 'Carousel', 'Cashmere Cat', 'Catching Flies', 'Celly Cel', 'Cheap Trick', 'Childish Gambino', 'Chris Clark',
+	'Chris Malinchak', 'Chrome Sparks', 'Chromeo', 'Classixx', 'Clean Bandit', 'Coldplay', 'Colour Coding',
+	'Com Truise', 'Common','Compton\'s Most Wanted', 'Conspirator', 'Crayon', 'Creedence Clearwater Revival', 'Cults', 'Cursive', 'Cut Copy', 'Dabrye', 'Daedelus',
 	'Daft Punk', 'Damian Marley', 'Dan Auerbach', 'Darius', 'DARKSUNN', 'Dave Van Ronk', 'David Grisman',
-	'De La Soul', 'Death Cab for Cutie', 'DeBarge', 'Della Mae', 'The Devil Makes Three', 'Devil Makes Three',
-	'The Diplomats', 'Dirty Vegas', 'Disclosure', 'DJ Shadow', 'The Doobie Brothers', 'Dream Koala', 'The Drums',
-	'Earth, Wind & Fire', 'Echosmith', 'El DeBarge', 'Elaquent', 'Electric Light Orchestra', 'Eminem',
-	'The Emotions', 'Empire Of The Sun', 'Empire of the Sun', 'EOTO', 'Elephants Only Talk Occasionally', 'Family of the Year',
-	'Fitz and The Tantrums', 'Fleetwood Mac', 'The Floozies', 'Flying Lotus', 'Foster The People', 'The Fray',
-	'Free The Robots', 'Generationals', 'Gil Scott-Heron & Jamie xx', 'Givers', 'Grateful Dead', 'Groundation', 'Guster',
-	'Guy', 'Hamilton Park', 'The Head And The Heart', 'Hieroglyphics', 'Holy Ghost!', 'Hot Natured',
-	'Hot Rize', 'Husalah', 'Imogen Heap', 'Inf', 'The Isaacs', 'J Dilla', 'J-Diggs', 'J. Rawls', 'Ja Rule', 'The Jacka',
-	'Jackie Greene', 'Jackson Browne', 'James Blake', 'James Brown', 'James Taylor', 'Jim James',
-	'John Mayer', 'Junip', 'JUNIP', 'Keith Sweat', 'The Killers', 'Kodomo', 'Kurupt', 'La Roux', 'Lanterns on the Lake',
-	'Lemon Jelly', 'Lenny Kravitz', 'Les Sins', 'Liquid Tension Experiment', 'Little People', 'London Grammar',
-	'Lotus', 'Lucy Rose', 'Luniz', 'Mac Dre', 'Mac Miller', 'Madeon', 'Magic!', 'Man Man', 'Marcus D', 'Marcus Marr',
-	'Mark Ronson', 'Martin Jondo', 'Marvin Gaye', 'Mat.Joe', 'Mat Joe', 'Maximo Park', 'Metaform', 'MGMT',
-	'Miami Horror', 'Miike Snow', 'Modjo', 'Mord Fustang', 'Mr Little Jeans', 'Mutemath', 'Nada Surf', 'Neil Young',
-	'Neon Indian', 'The New Deal', 'New Found Glory', 'Nicolas Jaar', 'Nirvana', 'Norah Jones', 'The Notorious B.I.G.',
-	'Oasis', 'Of Monsters And Men', 'Oingo Boingo', 'Old Crow Medicine Show', 'Opiuo', 'OutKast', 'P.S.D', 'Papadosio',
-	'Parliament', 'Passion Pit', 'Patrick Lee', 'Penguin Prison', 'People Under The Stairs', 'Phaeleh', 'Pharrell Williams',
-	'Phil Collins', 'Phoenix', 'Pnuma Trio', 'The Pnuma Trio', 'Pogo', 'The Postal Service', 'Prefuse 73', 'Prefuse73', 'Pretty Lights',
-	'R. Kelly', 'RAC', 'Radiohead', 'Random Rab', 'Ratatat', 'Ray Charles', 'Red Hot Chili Peppers', 'Rhye', 'Rooney',
-	'Ryan Montbleau', 'Sade', 'Samiyam', 'Sbtrkt', 'SBTRKT', 'Shy Girls', 'Sierra Hull', 'Six Deep', 'Skrillex', 'Smooth Jazz All-Stars',
-	'Social Distortion', 'Spoon', 'Squarepusher', 'Stacey Kent', 'Star Slinger', 'Starship Connection & K-Maxx', 'Steely Dan',
+	'De La Soul', 'Death Cab for Cutie', 'DeBarge', 'Deer Tick', 'Della Mae', 'The Devil Makes Three', 'Devil Makes Three',
+	'The Diplomats', 'Dirty Vegas', 'Disclosure', 'Dispatch', 'Dizzy Gillespie', 'DJ Cam', 'DJ Shadow', 'The Doobie Brothers', 'Dream Koala', 'Drexciya', 'The Drums',
+	'Duke Ellington', 'E-40', 'Eagles', 'Earth, Wind & Fire', 'Echosmith', 'El DeBarge', 'Elaquent', 'Electric Light Orchestra', 'Eliot Lipp',
+	'Elton John', 'Eminem', 'The Emotions', 'Empire Of The Sun', 'Empire of the Sun', 'EOTO', 'Elephants Only Talk Occasionally', 'Explosions in the Sky', 'Family of the Year',
+	'Fitz and The Tantrums', 'Fleetwood Mac', 'Flight Facilities', 'The Floozies', 'Flying Lotus', 'Foster The People', 'The Fray', 'Fred Falke',
+	'Free The Robots', 'Generationals', 'Geto Boys', 'The Geto Boys', 'Ghostland Observatory', 'Gil Scott-Heron & Jamie xx', 'Givers', 'Grateful Dead', 'Groundation', 'Guster',
+	'Green Day', 'Guru', 'Guy', 'Hamilton Park', 'The Head And The Heart', 'Heatwave', 'Hieroglyphics', 'Holy Ghost!', 'Hot Natured',
+	'Hot Rize', 'Husalah', 'Imogen Heap', 'Immortal Technique', 'Inf', 'Infected Mushroom', 'The Isaacs', 'The Isley Brothers', 'J Dilla', 'J-Diggs', 'J. Rawls', 'Ja Rule', 'The Jacka',
+	'Jackie Greene', 'Jackson Browne', 'Jaco Pastorius', 'James Blake', 'James Brown', 'James Taylor', 'Jean-Luc Ponty', 'Jim James', 'Jimmy Eat World', 'Joe Satriani',
+	'John Fogerty', 'John Mayer', 'Joomanji', 'Junip', 'JUNIP', 'Justice', 'Keith Sweat', 'Keys N Krates', 'The Killers', 'Kodomo', 'KRS-One', 'Kurupt', 'La Roux', 'Lanterns on the Lake',
+	'Lemon Jelly', 'Lianne La Havas', 'Lenny Kravitz', 'Les Sins', 'Liquid Tension Experiment', 'Little People', 'London Grammar', 'Lonnie Liston Smith', 
+	'Lotus', 'Lucy Rose', 'Luniz', 'The Lushlife Project', 'Lynyrd Skynyrd', 'M83', 'Mac Dre', 'Mac Miller', 'Madeon', 'Madlib', 'Magic!', 'Man Man', 'Marcus D', 'Marcus Marr',
+	'Mark Ronson', 'Martin Jondo', 'Marvin Gaye', 'Mat.Joe', 'Mat Joe', 'Maximo Park', 'Metaform', 'Metallica', 'MGMT', 'Michael Menert', 'Midnight Star', 'Minus The Bear', 'Mitzi', 'Modest Mouse',
+	'Miami Horror', 'Maroon 5', 'Matty G', 'Miike Snow', 'Modjo', 'Mord Fustang', 'Mr Little Jeans', 'Mr. Scruff','Mutemath', 'Nada Surf', 'Nas', 'Neil Young',
+	'Neon Indian', 'The New Deal', 'New Found Glory', 'Nicolas Jaar', 'Nightmares On Wax', 'Nirvana', 'Norah Jones', 'The Notorious B.I.G.',
+	'Oasis', 'Of Monsters And Men', 'The Offspring', 'Oingo Boingo', 'Old Crow Medicine Show', 'Omnimusic', 'Opiuo', 'Oscar Peterson', 'Oscar Peterson Trio', 'The Oscar Peterson Trio', 'OutKast', 'P.S.D', 'Papadosio',
+	'Parliament', 'Passion Pit', 'Patrick Lee', 'Paul Hardcastle', 'Penguin Prison', 'People Under The Stairs', 'Pete Rock', 'Phaeleh', 'Pharrell Williams',
+	'Phil Collins', 'Phoenix', 'Pink Floyd', 'Pnuma Trio', 'The Pnuma Trio', 'Pogo', 'The Postal Service', 'Prefuse 73', 'Prefuse73', 'Pretty Lights',
+	'R. Kelly', 'RAC', 'Radiohead', 'Railroad Earth', 'Random Rab', 'Ratatat', 'Ray Charles', 'Red Hot Chili Peppers', 'Rhye', 'RJD2', 'Rooney', 'Ruckazoid', 'Rusko', 'Ryan Adams',
+	'Ryan Montbleau', 'Sade', 'Samiyam', 'Sbtrkt', 'SBTRKT', 'The Shins', 'Shy Girls', 'Sierra Hull', 'Six Deep', 'Skrillex', 'Sly & The Family Stone', 'Smashing Pumpkins', 'Smooth Jazz All-Stars',
+	'Social Distortion', 'Spoon', 'Squarepusher', 'Stacey Kent', 'Star Slinger', 'Starship Connection & K-Maxx', 'Steel Pulse', 'Steely Dan',
 	'Stephane Pompougnac', 'Stevie Wonder', 'STRFKR', 'STS9', 'Sound Tribe Sector 9', 'Sufjan Stevens', 'Sum 41', 'Summer Camp', 'Summer Heart',
-	'Sunshine Anderson', 'Tame Impala', 'Telefon Tel Aviv', 'Todd Terje', 'Tony Ozier', 'Toro Y Moi', 'Toro y Moi', 'Totally Enormous Extinct Dinosaurs',
-	'Trey Songz', 'Turner', 'TV On The Radio', 'Twin Forks', 'Two Door Cinema Club', 'Two Hours Traffic', 'Tycho', 'The Virgins', 'Washed Out',
+	'Sunshine Anderson', 'Tame Impala', 'Teebs', 'Telefon Tel Aviv', 'The Disco Biscuits', 'Thelonious Monk', 'Thievery Corporation', 'Thundercat', 'Todd Terje', 'Tony Ozier', 'Toro Y Moi', 'Toro y Moi', 'Totally Enormous Extinct Dinosaurs',
+	'Trey Songz', 'Turner', 'TV On The Radio', 'Twin Forks', 'Two Door Cinema Club', 'Two Hours Traffic', 'Tycho', 'Van Morrison', 'Vibesquad', 'The Virgins', 'Wagon Christ', 'War', 'Washed Out',
 	'The Weeknd', 'The Whispers', 'White Denim', 'The Who', 'Wild Cub', 'Wilkinson', 'Wiz Khalifa', 'YACHT',
-	'Yeah Yeah Yeahs', 'Yellowcard', 'Yonder Mountain String Band', 'The Yonder Mountain String Band', 'Young the Giant', 'Young The Giant', 'Yukmouth'
+	'Yeah Yeah Yeahs', 'Yellowcard', 'Yellowjackets', 'Yonder Mountain String Band', 'The Yonder Mountain String Band', 'Young the Giant', 'Young The Giant', 'Yukmouth', 'Zero 7'
 ];
 
 
@@ -59,10 +59,10 @@ var url = require('url'),
 	u = url.parse(urlStr),
 
 	options = {
-	host: u.hostname,
-	path: u.path,
-	port: u.port || 80,
-	method: 'GET'
+		host: u.hostname,
+		path: u.path,
+		port: u.port || 80,
+		method: 'GET'
 	};
 
 
@@ -116,6 +116,7 @@ function responseHandler(res) {
 				console.log('City: ' + venue.City + ', ' + venue.StateCode);
 				console.log('Venue: ' + venue.Name);
 				if(venue.Url) console.log('URL: ' + venue.Url);
+				console.log('Date: ' + date);
 				if(ticketURL) console.log('Tickets: ' + ticketURL);
 			}
 			console.log('\n\nTotal Concerts Found: ' + obj.Events.length + '\n');
