@@ -1,13 +1,14 @@
-var args = process.argv;
+var args = process.argv,
+	dateRegEx = /\b\d\d\d\d-\d\d-\d\d\b/;
 
-if(args.length!==4 || args[2].length!==5 || isNaN(parseInt(args[2])) || isNaN(parseInt(args[3]))) {
-	console.log('Usage: node ConcertFinder.js [zipcode] [radius]');
+if(args.length!==6 || args[2].length!==5 || isNaN(parseInt(args[2])) || args[2].length!==5 || isNaN(parseInt(args[3])) || !args[4].match(dateRegEx) || !args[5].match(dateRegEx)) {
+	console.log('Usage: node ConcertFinder.js [zipcode] [radius] [YYYY-MM-DD] [YYYY-MM-DD]');
 	process.exit(1);
 }
 
 var myArtists = [
 	'2Pac', '2wice', '311', '360', 'A Tribe Called Quest', 'a-ha', 'Above & Beyond', 'Above and Beyond', 'AC/DC',
-	'Aeroplane', 'AFX', 'Air', 'Al Green', 'Aloe Blacc', 'Alison Krauss', 'alt-J', 'AmpLive', 'Anchorsong', 'Anchor Song',
+	'Aeroplane', 'Aesop Rock', 'AFX', 'Air', 'Al Green', 'Aloe Blacc', 'Alison Krauss', 'alt-J', 'AmpLive', 'Anchorsong', 'Anchor Song',
 	'Antonio Carlos Jobim', 'Aphex Twin', 'Aphrodite','Apparat', 'Atlas Genius', 'Atmosphere',
 	'ATU', 'The Avalanches','The Avett Brothers', 'Avett Brothers', 'AWOLNATION', 'Awolnation',
 	'B.o.B', 'Badbadnotgood', 'Bag Raiders', 'Banks', 'Basement Jaxx', 'Bassnectar', 'Bastille',
@@ -15,15 +16,15 @@ var myArtists = [
 	'blink-182', 'Blink-182', 'Blockhead', 'Blood Orange', 'Blue Oyster Cult',
 	'The Wailers', 'Bobby Brown', 'Bobby McFerrin', 'Bondax', 'Bone Thugs-n-Harmony', 'Boney James', 'Bonobo', 'Carlos Santana', 'Santana',
 	'Booker T. & The MG\'s', 'Breakbot', 'Brotha Lynch Hung', 'Bruno Mars', 'C2C', 'Cake', 'Capital Cities',
-	'Carole King', 'Carousel', 'Cashmere Cat', 'Catching Flies', 'Celly Cel', 'Cheap Trick', 'Childish Gambino', 'Chris Clark',
+	'Carole King', 'Carousel', 'Cashmere Cat', 'Cat Stevens', 'Catching Flies', 'Celly Cel', 'Cheap Trick', 'Childish Gambino', 'Chris Clark',
 	'Chris Malinchak', 'Chrome Sparks', 'Chromeo', 'Classixx', 'Clean Bandit', 'Coldplay', 'Colour Coding',
 	'Com Truise', 'Common','Compton\'s Most Wanted', 'Conspirator', 'Crayon', 'Creedence Clearwater Revival', 'Cults', 'Cursive', 'Cut Copy', 'Dabrye', 'Daedelus',
 	'Daft Punk', 'Damian Marley', 'Dan Auerbach', 'Darius', 'DARKSUNN', 'Dave Van Ronk', 'David Grisman',
 	'De La Soul', 'Death Cab for Cutie', 'DeBarge', 'Deer Tick', 'Della Mae', 'The Devil Makes Three', 'Devil Makes Three',
-	'The Diplomats', 'Dirty Vegas', 'Disclosure', 'Dispatch', 'Dizzy Gillespie', 'DJ Cam', 'DJ Shadow', 'The Doobie Brothers', 'Dream Koala', 'Drexciya', 'The Drums',
+	'The Diplomats', 'Dirty Vegas', 'Disclosure', 'Dispatch', 'Dizzy Gillespie', 'DJ Cam', 'DJ Shadow', 'The Doobie Brothers', 'Double K', 'Dream Koala', 'Drexciya', 'The Drums',
 	'Duke Ellington', 'E-40', 'Eagles', 'Earth, Wind & Fire', 'Echosmith', 'El DeBarge', 'Elaquent', 'Electric Light Orchestra', 'Eliot Lipp',
 	'Elton John', 'Eminem', 'The Emotions', 'Empire Of The Sun', 'Empire of the Sun', 'EOTO', 'Elephants Only Talk Occasionally', 'Explosions in the Sky', 'Family of the Year',
-	'Fitz and The Tantrums', 'Fleetwood Mac', 'Flight Facilities', 'The Floozies', 'Flying Lotus', 'Foster The People', 'The Fray', 'Fred Falke',
+	'Felix Pastorius', 'Fitz and The Tantrums', 'Fleetwood Mac', 'Flight Facilities', 'The Floozies', 'Flying Lotus', 'Foster The People', 'The Fray', 'Fred Falke',
 	'Free The Robots', 'Generationals', 'Geto Boys', 'The Geto Boys', 'Ghostland Observatory', 'Gil Scott-Heron & Jamie xx', 'Givers', 'Grateful Dead', 'Groundation', 'Guster',
 	'Green Day', 'Guru', 'Guy', 'Hamilton Park', 'The Head And The Heart', 'Heatwave', 'Hieroglyphics', 'Holy Ghost!', 'Hot Natured',
 	'Hot Rize', 'Husalah', 'Imogen Heap', 'Immortal Technique', 'Inf', 'Infected Mushroom', 'The Isaacs', 'The Isley Brothers', 'J Dilla', 'J-Diggs', 'J. Rawls', 'Ja Rule', 'The Jacka',
@@ -41,7 +42,7 @@ var myArtists = [
 	'Ryan Montbleau', 'Sade', 'Samiyam', 'Sbtrkt', 'SBTRKT', 'The Shins', 'Shy Girls', 'Sierra Hull', 'Six Deep', 'Skrillex', 'Sly & The Family Stone', 'Smashing Pumpkins', 'Smooth Jazz All-Stars',
 	'Social Distortion', 'Spoon', 'Squarepusher', 'Stacey Kent', 'Star Slinger', 'Starship Connection & K-Maxx', 'Steel Pulse', 'Steely Dan',
 	'Stephane Pompougnac', 'Stevie Wonder', 'STRFKR', 'STS9', 'Sound Tribe Sector 9', 'Sufjan Stevens', 'Sum 41', 'Summer Camp', 'Summer Heart',
-	'Sunshine Anderson', 'Tame Impala', 'Teebs', 'Telefon Tel Aviv', 'The Disco Biscuits', 'Thelonious Monk', 'Thievery Corporation', 'Thundercat', 'Todd Terje', 'Tony Ozier', 'Toro Y Moi', 'Toro y Moi', 'Totally Enormous Extinct Dinosaurs',
+	'Sunshine Anderson', 'Tame Impala', 'Teebs', 'Telefon Tel Aviv', 'The Disco Biscuits', 'Thelonious Monk', 'Thes One', 'Thievery Corporation', 'Thundercat', 'Todd Terje', 'Tony Ozier', 'Toro Y Moi', 'Toro y Moi', 'Totally Enormous Extinct Dinosaurs',
 	'Trey Songz', 'Turner', 'TV On The Radio', 'Twin Forks', 'Two Door Cinema Club', 'Two Hours Traffic', 'Tycho', 'Van Morrison', 'Vibesquad', 'The Virgins', 'Wagon Christ', 'War', 'Washed Out',
 	'The Weeknd', 'The Whispers', 'White Denim', 'The Who', 'Widespread Panic', 'Wild Cub', 'Wilkinson', 'Wiz Khalifa', 'YACHT',
 	'Yeah Yeah Yeahs', 'Yellowcard', 'Yellowjackets', 'Yonder Mountain String Band', 'The Yonder Mountain String Band', 'Young the Giant', 'Young The Giant', 'Yukmouth', 'Zero 7'
@@ -54,7 +55,10 @@ var url = require('url'),
 	apiKey = '832t889gh3n8728fzxthr644',
 	zipcode = args[2],
 	radius = args[3],
-	urlStr = 'http://api.jambase.com/events?zipCode=' + zipcode + '&radius=' + radius + '&page=0&api_key=' + apiKey,
+	startDate = args[4] + 'T00%3A00%3A00',
+	endDate = args[5] + 'T23%3A59%3A59',
+	//urlStr = 'http://api.jambase.com/events?zipCode=' + zipcode + '&radius=' + radius + '&page=0&api_key=' + apiKey, //<---For ASAP (no start date or end date)
+	urlStr = 'http://api.jambase.com/events?zipCode=' + zipcode + '&radius=' + radius + '&startDate=' + startDate + '&endDate=' + endDate + '&page=0&api_key=' + apiKey;
 
 	u = url.parse(urlStr),
 
