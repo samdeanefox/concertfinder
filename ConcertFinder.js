@@ -1,8 +1,11 @@
 var args = process.argv,
-	dateRegEx = /\b\d\d\d\d-\d\d-\d\d\b/;
+	dateRegEx = /\b\d\d\d\d-\d\d-\d\d\b/,
+	zipRegEx = /\b\d\d\d\d\d\b/;
 
-if(args.length!==6 || args[2].length!==5 || isNaN(parseInt(args[2])) || args[2].length!==5 || isNaN(parseInt(args[3])) || !args[4].match(dateRegEx) || !args[5].match(dateRegEx)) {
-	console.log('Usage: node ConcertFinder.js [zipcode] [radius] [YYYY-MM-DD] [YYYY-MM-DD]');
+if(args.length!==6 || !args[2].match(zipRegEx) || isNaN(parseInt(args[2])) || args[2].length!==5 || isNaN(parseInt(args[3])) || !args[4].match(dateRegEx) || !args[5].match(dateRegEx)) {
+	console.log('\nUsage: node ConcertFinder.js [zipcode] [radius] [start-date] [end-date]');
+	console.log('Zipcode Format: #####');
+	console.log('Date Format: YYYY-MM-DD\n');
 	process.exit(1);
 }
 
