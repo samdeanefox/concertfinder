@@ -30,20 +30,20 @@ var myArtists = [
 	'Jackie Greene', 'Jackson Browne', 'Jaco Pastorius', 'James Blake', 'James Brown', 'James Taylor', 'Jean-Luc Ponty', 'Jim James', 'Jimmy Eat World', 'Joe Satriani',
 	'John Fogerty', 'John Mayer', 'Joomanji', 'Junip', 'JUNIP', 'Justice', 'Keith Sweat', 'Keys N Krates', 'The Killers', 'Kodomo', 'KRS-One', 'Kurupt', 'La Roux', 'Lanterns on the Lake',
 	'Lemon Jelly', 'Lianne La Havas', 'Lenny Kravitz', 'Les Sins', 'Liquid Tension Experiment', 'Little People', 'London Grammar', 'Lonnie Liston Smith', 
-	'Lotus', 'Lucy Rose', 'Luniz', 'The Lushlife Project', 'Lynyrd Skynyrd', 'M83', 'Mac Dre', 'Mac Miller', 'Madeon', 'Madlib', 'Magic!', 'Man Man', 'Marcus D', 'Marcus Marr',
+	'Lotus', 'Lucy Rose', 'Luniz', 'The Lushlife Project', 'Lynyrd Skynyrd', 'M83', 'Mac Dre', 'Mac Miller', 'Madeon', 'Madlib', 'Madness', 'Magic!', 'Man Man', 'Marcus D', 'Marcus Marr',
 	'Mark Ronson', 'Martin Jondo', 'Marvin Gaye', 'Mat.Joe', 'Mat Joe', 'Maximo Park', 'Metaform', 'Metallica', 'MGMT', 'Michael Menert', 'Midnight Star', 'Minus The Bear', 'Mitzi', 'Modest Mouse',
 	'Miami Horror', 'Maroon 5', 'Matty G', 'Miike Snow', 'Modjo', 'Mord Fustang', 'Mr Little Jeans', 'Mr. Scruff','Mutemath', 'Nada Surf', 'Nas', 'Neil Young',
 	'Neon Indian', 'The New Deal', 'New Found Glory', 'Nicolas Jaar', 'Nightmares On Wax', 'Nirvana', 'Norah Jones', 'The Notorious B.I.G.',
 	'Oasis', 'Of Monsters And Men', 'The Offspring', 'Oingo Boingo', 'Old Crow Medicine Show', 'Omnimusic', 'Opiuo', 'Oscar Peterson', 'Oscar Peterson Trio', 'The Oscar Peterson Trio', 'OutKast', 'P.S.D', 'Papadosio',
-	'Parliament', 'Passion Pit', 'Patrick Lee', 'Paul Hardcastle', 'Penguin Prison', 'People Under The Stairs', 'Pete Rock', 'Phaeleh', 'Pharrell Williams',
+	'Parliament', 'Passion Pit', 'Patrick Lee', 'Paul Hardcastle', 'Penguin Prison', 'People Under The Stairs', 'Pete Rock', 'Phaeleh', 'Pharrell Williams', 'Phish',
 	'Phil Collins', 'Phoenix', 'Pink Floyd', 'Pnuma Trio', 'The Pnuma Trio', 'Pogo', 'The Postal Service', 'Prefuse 73', 'Prefuse73', 'Pretty Lights',
-	'R. Kelly', 'RAC', 'Radiohead', 'Railroad Earth', 'Random Rab', 'Ratatat', 'Ray Charles', 'Red Hot Chili Peppers', 'Rhye', 'RJD2', 'Rooney', 'Ruckazoid', 'Rusko', 'Ryan Adams',
+	'R. Kelly', 'RAC', 'Radiohead', 'Railroad Earth', 'Ramsey Lewis', 'Random Rab', 'Ratatat', 'Ray Charles', 'Red Hot Chili Peppers', 'Rhye', 'RJD2', 'Rooney', 'Ruckazoid', 'Rusko', 'Ryan Adams',
 	'Ryan Montbleau', 'Sade', 'Samiyam', 'Sbtrkt', 'SBTRKT', 'The Shins', 'Shy Girls', 'Sierra Hull', 'Six Deep', 'Skrillex', 'Sly & The Family Stone', 'Smashing Pumpkins', 'Smooth Jazz All-Stars',
 	'Social Distortion', 'Spoon', 'Squarepusher', 'Stacey Kent', 'Star Slinger', 'Starship Connection & K-Maxx', 'Steel Pulse', 'Steely Dan',
 	'Stephane Pompougnac', 'Stevie Wonder', 'STRFKR', 'STS9', 'Sound Tribe Sector 9', 'Sufjan Stevens', 'Sum 41', 'Summer Camp', 'Summer Heart',
 	'Sunshine Anderson', 'Tame Impala', 'Teebs', 'Telefon Tel Aviv', 'The Disco Biscuits', 'Thelonious Monk', 'Thievery Corporation', 'Thundercat', 'Todd Terje', 'Tony Ozier', 'Toro Y Moi', 'Toro y Moi', 'Totally Enormous Extinct Dinosaurs',
 	'Trey Songz', 'Turner', 'TV On The Radio', 'Twin Forks', 'Two Door Cinema Club', 'Two Hours Traffic', 'Tycho', 'Van Morrison', 'Vibesquad', 'The Virgins', 'Wagon Christ', 'War', 'Washed Out',
-	'The Weeknd', 'The Whispers', 'White Denim', 'The Who', 'Wild Cub', 'Wilkinson', 'Wiz Khalifa', 'YACHT',
+	'The Weeknd', 'The Whispers', 'White Denim', 'The Who', 'Widespread Panic', 'Wild Cub', 'Wilkinson', 'Wiz Khalifa', 'YACHT',
 	'Yeah Yeah Yeahs', 'Yellowcard', 'Yellowjackets', 'Yonder Mountain String Band', 'The Yonder Mountain String Band', 'Young the Giant', 'Young The Giant', 'Yukmouth', 'Zero 7'
 ];
 
@@ -52,8 +52,8 @@ var url = require('url'),
 	http = require('http'),
 
 	apiKey = '832t889gh3n8728fzxthr644',
-	zipcode = parseInt(args[2]),
-	radius = parseFloat(args[3]),
+	zipcode = args[2],
+	radius = args[3],
 	urlStr = 'http://api.jambase.com/events?zipCode=' + zipcode + '&radius=' + radius + '&page=0&api_key=' + apiKey,
 
 	u = url.parse(urlStr),
@@ -74,7 +74,7 @@ function responseHandler(res) {
 
 	res.on('end', function() {
 		try {
-			console.log('processing...');
+			console.log('\n\nALL CONCERTS:');
 			var obj = JSON.parse(str),
 				matches = [];
 			for(var i in obj.Events) {
@@ -96,10 +96,22 @@ function responseHandler(res) {
 					}
 					if(flag) break;
 				}
+				//Print All Concerts
+				process.stdout.write('\nArtist(s): ');
+				for(var j in artists) {
+					process.stdout.write(artists[j].Name);
+					if(j < artists.length-1) process.stdout.write(', ');
+					else console.log('');
+				}
+				console.log('Venue: ' + venue.Name);
+				console.log('City: ' + venue.City + ', ' + venue.StateCode);
+				console.log('When: ' + formatDateAndTime(date));
+				if(venue.Url) console.log('URL: ' + venue.Url);
+				if(ticketURL) console.log('Tickets: ' + ticketURL);
 			}
-		
 
-			//Print
+			//Print Matches
+			console.log('\n\n----------------------------------\n\nMY MATCHES:\n');
 			for(var i in matches) {
 				console.log('');
 				var id = matches[i].Id,
@@ -113,14 +125,16 @@ function responseHandler(res) {
 					if(j < artists.length-1) process.stdout.write(', ');
 					else console.log('');
 				}
-				console.log('City: ' + venue.City + ', ' + venue.StateCode);
 				console.log('Venue: ' + venue.Name);
+				console.log('City: ' + venue.City + ', ' + venue.StateCode);
+				console.log('When: ' + formatDateAndTime(date));
 				if(venue.Url) console.log('URL: ' + venue.Url);
-				console.log('Date: ' + date);
 				if(ticketURL) console.log('Tickets: ' + ticketURL);
 			}
-			console.log('\n\nTotal Concerts Found: ' + obj.Events.length + '\n');
+			console.log('\n\nMatches Found: ' + matches.length);
+			console.log('Total Concerts Found: ' + obj.Events.length + '\n');
 		}
+
 		catch(err) {
 			console.log('\n\nSomething went wrong...');
 			console.log('Response:');
@@ -129,7 +143,27 @@ function responseHandler(res) {
 	});
 }
 
+function formatDateAndTime(str) {
+	var year = str.substring(0, 4),
+		month = str.substring(5, 7),
+		day = str.substring(8, 10),
+		hour = str.substring(11,13),
+		minute = str.substring(14, 16),
+		ampm = 'AM';
+	if(parseInt(hour) === 0) {
+		hour = '12';
+	}
+	else if(parseInt(hour) > 12) {
+		hour = parseInt(hour);
+		hour -= 12;
+		hour = hour.toString();
+		ampm = 'PM';
+	}
+	return (month + '-' + day + '-' + year + ' ' + hour + ':' + minute + ampm);
+}
 
+
+//Make Request
 console.log('connecting...');
 var req = http.request(options, responseHandler);
 req.end();
